@@ -41,8 +41,10 @@ flutter run --dart-define=API_KEY=YOUR_API_KEY
 ```
 
 ---
+## 🎥 Demo Video
 
-## 🧪 Demo
+Watch the demo here:
+https://drive.google.com/file/d/1zIZ5I0MfSKkhadultW4AR8AZ8I5oAAxb/view?usp=drive_link
 
 The app demonstrates:
 
