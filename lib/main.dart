@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 const String _geminiApiKey = String.fromEnvironment('API_KEY');
-
-
 const String _geminiEndpoint =
     'https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent';
 
@@ -12,9 +10,6 @@ void main() {
   runApp(const PromptShield());
 }
 
-// ─────────────────────────────────────────────
-//  App Entry
-// ─────────────────────────────────────────────
 class PromptShield extends StatelessWidget {
   const PromptShield({super.key});
 
@@ -38,7 +33,6 @@ class PromptShield extends StatelessWidget {
   }
 }
 
-// ─────────────────────────────────────────────
 //  Risk Level Enum
 // ─────────────────────────────────────────────
 enum RiskLevel { safe, medium, high }
@@ -78,9 +72,7 @@ extension RiskLevelExtension on RiskLevel {
   }
 }
 
-// ─────────────────────────────────────────────
 //  Message Model
-// ─────────────────────────────────────────────
 class ChatMessage {
   final String text;
   final bool isUser;
@@ -93,9 +85,7 @@ class ChatMessage {
   });
 }
 
-// ─────────────────────────────────────────────
 //  Safety Engine
-// ─────────────────────────────────────────────
 
 /// Checks for sensitive personal data: email, phone, keywords
 Map<String, dynamic> hasSensitiveData(String text) {
@@ -239,23 +229,8 @@ Future<String> sendToGemini(String userMessage) async {
     return "⚠️ Network error. Please check your connection.";
   }
 }
-//     if (response.statusCode == 200) {
-//       final data = jsonDecode(response.body);
-//       // Parse: response['candidates'][0]['content']['parts'][0]['text']
-//       return data['candidates'][0]['content']['parts'][0]['text'] as String;
-//     } else {
-//       final error = jsonDecode(response.body);
-//       final msg = error['error']?['message'] ?? 'Unknown error';
-//       return '⚠️ API Error: $msg';
-//     }
-//   } catch (e) {
-//     return '⚠️ Network error. Please check your connection.';
-//   }
-// }
-
-// ─────────────────────────────────────────────
 //  Chat Screen
-// ─────────────────────────────────────────────
+
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
 
@@ -943,9 +918,7 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   }
 }
 
-// ─────────────────────────────────────────────
 //  Animated Typing Dots
-// ─────────────────────────────────────────────
 class _TypingDots extends StatefulWidget {
   const _TypingDots();
 
